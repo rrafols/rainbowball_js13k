@@ -1,0 +1,20 @@
+{
+  "name": "rainbowball-js13k",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "RAINBOWBALL 2: BRUTAL UNICORNS - a js13k entry. Speedball 2 with unicorns; all graphics generated from code.",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/dev.js && echo 'open dev.html in a browser'",
+    "size": "node tools/build.js --report",
+    "pack": "node tools/build.js --roadroller",
+    "test": "node tools/build.js --test --roadroller && node tools/smoke.js && node tools/fits.js",
+    "shots": "node tools/build.js --test --roadroller && node tools/shots.js"
+  },
+  "devDependencies": {
+    "canvas": "^3.2.3",
+    "roadroller": "^2.1.0",
+    "terser": "^5.31.0"
+  }
+}
