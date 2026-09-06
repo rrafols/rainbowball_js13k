@@ -1,7 +1,7 @@
 # RAINBOWBALL 2: BRUTAL UNICORNS
 
-A js13k entry. Speedball 2 played by small aggressive unicorns on a rainbow
-pitch. One HTML file under 13,312 bytes zipped, with no image, audio or font
+A js13k entry: a Speedball 2-inspired future sport played by small aggressive
+unicorns on a rainbow pitch. One HTML file under 13,312 bytes zipped, with no image, audio or font
 assets: every pixel, note, name and arena is generated from code at runtime.
 
     npm install
@@ -31,11 +31,12 @@ it, `R` fires a rainbow rail, `M` toggles sound. Touch: drag the left half of
 the screen to move, tap the right half to tackle or shoot, tap RAIL for a rail.
 The first kickoff shows a card with whichever set applies.
 
-Scoring is Speedball's. A goal is ten points, putting an opponent in the
+Scoring: a goal is ten points, putting an opponent in the
 ambulance is ten, and every star you have lit down the side rails adds one to
-both, so seven stars make a goal worth seventeen. Stars are contested: hit one
-the other side lit and it is yours. Light all seven on one side and the pitch
-goes full spectrum for a while, your rails free and the surface cycling.
+both. Seven stars run down each side rail, fourteen in all, so a goal can be
+worth 24. Stars are contested: hit one the other side lit and it is yours. Own
+all seven on either side and the pitch goes full spectrum for twenty seconds:
+your rails free and twice as long-lived, the surface cycling through the wheel.
 
 Rainbow rails are curved walls the ball banks off at steep angles and rides at
 shallow ones. They belong to nobody, cost 25 of the rail meter (the bar at the
