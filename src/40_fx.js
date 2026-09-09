@@ -1,5 +1,4 @@
-/* ---------- 7. particles: three types, one array -----------
-   1 star sparkle  3 shockwave ring  4 smoke puff                */
+/* ---------- 7. particles: three types, one array ----------- */
 function boom(x, y, n, hue, spd = 3, big = 0) {
   if (fx.length > 620) return;
   for (let i = n; i--;) {

@@ -22,7 +22,7 @@ if (test) source += `
   get cam(){return cam}, get camX(){return camX}, boom, ring, puff, set fx(v){fx=v}, get GX0(){return GX0}, get GX1(){return GX1},
   set mIn(v){mIn=v}, set sd(v){sd=v}, get bows(){return bows},
   nav, subIn, doAct, get mi(){return mi}, set mi(v){mi=v}, get sel(){return sel}, set sel(v){sel=v},
-  set skipT(v){tutSeen=v}, set touch(v){touch=v}, set tipI(v){tipI=v},   /* harnesses still say g.skipT = 1 */ set lit(v){lit=v},
+  set skipT(v){tutSeen=v}, set touch(v){touch=v}, set tipI(v){tipI=v}, set specT(v){specT=v}, set specTeam(v){specTeam=v}, set sweep(v){sweep=v}, bigUnicorn, txt, X,   /* harnesses still say g.skipT = 1 */ set lit(v){lit=v},
   get achG(){return achG}, set achG(v){achG=v}, ach };`;
 
 const min = await minify(source, {
@@ -38,8 +38,9 @@ let code = min.code;
 
 if (useRR) {
   /* Roadroller's optimize(2) is a randomised search that varies 10-20 B run to
-     run. The parameters it converged on are frozen in tools/heatmap-params.json,
-     so the build is deterministic and lands on the best set found.
+     run. The parameters it converged on (best of four) are frozen in
+     tools/heatmap-params.json, so the
+     build is deterministic and lands on the best set found, not an average one.
      --reopt runs the search again and prints the result for freezing by hand.
      allowFreeVars lets the decoder use bare globals for a smaller decoder; it
      is safe only because no element has a single-letter id (the canvas is

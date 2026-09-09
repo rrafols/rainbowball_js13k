@@ -47,7 +47,6 @@ function drawBall() {
     X.beginPath(); X.arc(b.x, b.y + 9 + b.z, r, 0, 7); X.fill(); }
   X.fillStyle = '#2a143a';
   X.beginPath(); X.arc(b.x, by, r + 1, 0, 7); X.fill();
-  /* biggest disc first, so the two inner shades stay visible */
   for (let i = 0; i < 3; i++) {
     X.fillStyle = C(232, 44 + i * 13, 17 - i * 4);
     X.beginPath(); X.arc(b.x - i * .5, by - i * .6, r - i * .9, 0, 7); X.fill();
@@ -168,8 +167,6 @@ function hud() {
   if (n1) txt('X' + (10 + n1) / 10, W - 8 - w1, 12, C(2, 58, 94), 1, 2);
   txt(('0' + Math.max(0, Math.ceil(clock))).slice(-2), 100, 6, '#fff', 2, 1);
 
-  /* bottom bar, twelve pixels: the rail meter across the width and the sound
-     icon at the far right; the quarter ticks are the cost of a rail (25 each) */
   R(0, VB, W, H - VB, '#140b2a');
   const bw = W - 24;
   R(6, VB + 3, bw, 6, '#291b48');

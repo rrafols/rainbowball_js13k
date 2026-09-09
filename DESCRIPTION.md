@@ -12,9 +12,9 @@ Press **R** to fire a curved wall the ball banks off at steep angles and rides a
 
 ## Controls
 
-- **Keyboard:** arrows or WASD move, SPACE tackles without the ball and shoots with it, R fires a rail, M mutes.
+- **Keyboard:** arrows or WASD move, SPACE tackles without the ball and shoots with it, R fires a rail.
 - **Touch:** drag the left half to move, tap the right half to hit, tap RAIL.
-- Menus take arrows and Enter, or a tap.
+- Menus take arrows and Enter, or a tap. The speaker icon toggles sound.
 
 ## Season
 
@@ -27,4 +27,4 @@ Everything is generated at runtime, zero assets:
 - One `unicorn()` of fifteen rectangles draws every player. A team is one hue; the six kinds and their trimmings are offsets from it. Two compositing rules, a one-pixel rim and a top light, give every pose an outline for free.
 - Every arena comes from one integer: name, palette, length, goal width, layout, hazards, night matches. Studs are placed in mirrored pairs so neither end is favoured.
 - Two three-voice trackers, patterns as digit strings: pentatonic for the menus, four-bar techno for the match.
-- A 3x5 font as octal digits, bloom, a Mexican wave, a goal camera. 13,284 bytes.
+- A 3x5 font as octal digits, bloom, a goal camera, a crowd that bobs. 13,302 bytes.

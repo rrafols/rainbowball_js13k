@@ -27,9 +27,10 @@ about 430 bytes; the build says which zipper it used.
 ## How to play
 
 Keyboard: arrows or WASD move, space tackles without the ball and shoots with
-it, `R` fires a rainbow rail, `M` toggles sound. Touch: drag the left half of
+it, `R` fires a rainbow rail. Touch: drag the left half of
 the screen to move, tap the right half to tackle or shoot, tap RAIL for a rail.
-The first kickoff shows a card with whichever set applies.
+The speaker icon toggles sound. The first kickoff shows a card with whichever
+set applies.
 
 Scoring: a goal is ten points, putting an opponent in the
 ambulance is ten, and every star you have lit down the side rails adds one to

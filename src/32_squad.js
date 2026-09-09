@@ -72,7 +72,6 @@ function kickoff(first) {
   st = 'ready'; phase = first ? 100 : 60;
   say(first ? 'GET READY!' : '');
 }
-/* after the whistle: whoever was carried off this match sits out the next one */
 function injuries() {
   squad.forEach(p => {
     if (p.inj && p.inj.m > 0) p.inj.m--;

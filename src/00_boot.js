@@ -10,10 +10,6 @@ const CV = document.getElementById('cv'), X = CV.getContext('2d');   // two lett
 const W = 200, H = 300;                 // virtual resolution (CSS upscales it)
 CV.width = W; CV.height = H;
 X.imageSmoothingEnabled = false;
-/* The canvas is snapped to a whole multiple of 200x300 wherever there is room
-   for one (2x and up): a fractional scale maps 300 rows onto uneven device
-   pixels, and this game is one-pixel lines. Below 2x, phones, it fills the
-   screen instead. */
 const fitCV = () => {
   let k = Math.min((window.innerWidth || W) / W, (window.innerHeight || H) / H);
   if (k >= 2) k |= 0;

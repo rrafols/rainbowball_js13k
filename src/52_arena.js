@@ -29,9 +29,7 @@ function bumper(b, A) {
    other one holding something up. The bob is keyed to world position, so a row
    of them ripples instead of pulsing in unison, and a goal sets them jumping. */
 function fan(x, y, i, h) {
-  /* body, head, horn */
-  const cel = st === 'goal' ? 2 : 1,
-        b = sin(cel > 1 ? t * .15 - x * .04 : t * .07 + i * .7) > .3 ? cel : 0,   // a goal sends a wave down the stands
+  const b = sin(t * .07 + i * .7) > .3 ? 1 : 0,
         hh = h + i % 3 * 9;
   R(x, y - b, 3, 3, C(hh, 40, 52));                     // body
   R(x, y - 3 - b, 3, 2, C(hh, 52, 58));                 // head
@@ -62,8 +60,6 @@ function stands() {
      worth drawing while the camera is past one of them */
         tp = y0 < 0, bt = y0 > FB - VH, lf = x0 < 0 && !AR.sky, rt = x0 > CAMX && !AR.sky;
   if (lf || rt) tunnels();
-  /* No parallax: the overscroll past a wall is only 20 units, so a correct one
-     would move the fans four pixels. */
   if (tp || bt) for (let x = x0 - 24 - x0 % 6; x < x0 + W + 6; x += 6)
     for (let r = 0; r < 2; r++) {
       if (tp) fan(x + r * 3, -19 + r * 7, x + r, fo);
@@ -112,14 +108,6 @@ function arena() {
   if (A.zap) bumps.forEach(b => { if (t % 90 < 26) ring(b.x, b.y, 55, b.r + 7, 10); });
   bumps.forEach(b => bumper(b, A));
 }
-/* Speedball's goal: a round hole in the END WALL, not a pit in the ground. The
-   mouth is drawn whole, centred on the goal line, and clipped to the wall's
-   band so it stops where wall meets ground instead of pooling onto the pitch.
-   What makes it read as cut INTO the wall rather than painted on: a gradient
-   inside from the lit tunnel floor at the ground line to black at the back
-   (the floor is what a camera above can see of a horizontal tunnel), and a
-   bevelled rim - light on the outer edge, shadow just inside. The rainbow
-   rings stay so the mouth is findable from the far end of the pitch. */
 function goal(y, bottom, A) {
   const g = (GX1 - GX0) / 2, w = GX1 - GX0, d = bottom ? -1 : 1, a0 = bottom ? 0 : PI, a1 = bottom ? PI : 7;
   X.save();

@@ -1,14 +1,12 @@
 function stepPlayers() {
-  /* hero = my unicorn nearest the ball (unless I'm carrying it). The one I
-     already have keeps it until a mate is 24 px nearer: without the margin two
-     unicorns converging on a loose ball swapped control every few frames, and
-     on a phone the thumb drag went to whichever one had it that tick. `h` is
-     captured first because the loop reassigns `hero` as it scans. */
+  // hero = my unicorn nearest the ball (unless I'm carrying it)
   if (!(ball.own && ball.own.t === 0)) {
-    let best = 1e9, h = hero;
-    pl.forEach(p => { if (p.t) return;
-      const d = hyp(p.x - ball.x, p.y - ball.y) + p.down * 3 - (p === h) * 24;
-      if (d < best) { best = d; hero = p; } });
+    let best = 1e9, nb;
+    const dist = p => hyp(p.x - ball.x, p.y - ball.y) + p.down * 3;
+    pl.forEach(p => { if (p.t) return; const d = dist(p); if (d < best) { best = d; nb = p; } });
+    /* switch only when someone is clearly closer: without the 18-unit margin
+       two unicorns at the same distance swapped the cursor every tick */
+    if (!hero || hero.t || !pl.includes(hero) || best < dist(hero) - 18) hero = nb;
   } else hero = ball.own;
 
   pl.forEach(p => {

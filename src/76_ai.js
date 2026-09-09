@@ -11,10 +11,6 @@ function think(p) {
   const goalY = p.t ? FB - 6 : FT + 6, ownY = p.t ? FT + 12 : FB - 12;
   if (b.own === p) {
     if (p.k === 0 && rs() < .09 + iq * .04) {         // keeper clearance
-      /* Spreads are scaled with the pitch even though they aim at a fixed-width
-         goal. Counter-intuitive, but measured: a wider pitch lets the attack get
-         free more easily, and the looser aim is what keeps the scoreline near
-         where it was. Reverting these to 90/40 doubled the goals conceded.    */
       p.ang = atan2(goalY - p.y, CX + (rs() - .5) * PW * (.49 - iq * .12) - p.x); shoot(p); return;
     }
     ty = goalY;

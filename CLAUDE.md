@@ -28,6 +28,10 @@ bytes.** Assume every change costs bytes and measure with `npm run pack`.
   Roadroller parameters, so a 5 B difference is a real 5 B. After a large
   change, `node tools/build.js --roadroller --reopt` searches again; paste the
   result into the JSON if it packs smaller.
+- **The shell has no charset meta on purpose.** The packed page is pure ASCII
+  (no byte above 0x7F in `dist/index.html`) and so is every game string. If a
+  build ever packs a non-ASCII byte, `<meta charset=utf-8>` must come back or
+  the decoder garbles; one line of Python against the built file checks it.
 - **The decoder uses bare globals**, so no element may have a single-letter
   `id`. The canvas is `id=cv`.
 - **Only distinct code costs bytes.** Roadroller models repeated text almost

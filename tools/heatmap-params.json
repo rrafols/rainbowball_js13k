@@ -1,5 +1,5 @@
 {
-  "note": "frozen Roadroller parameters used by tools/build.js so two packs of the same source give the same byte. Re-derive after a large change to the source: node tools/build.js --roadroller --reopt, then paste the result here if it packs smaller.",
+  "note": "frozen Roadroller parameters used by tools/build.js so two packs of the same source give the same byte. Re-derive after a large change: node tools/build.js --roadroller --reopt, then paste the result here if it packs smaller.",
   "options": {
     "sparseSelectors": [
       0,
@@ -16,7 +16,7 @@
       338
     ],
     "maxMemoryMB": 150,
-    "precision": 14,
+    "precision": 15,
     "modelMaxCount": 5,
     "modelRecipBaseCount": 15,
     "recipLearningRate": 1450,

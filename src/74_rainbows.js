@@ -10,7 +10,7 @@ function fireBow(p) {
     meter -= BOWCOST * (mxd(p.cs) ? .5 : 1);  // a rainbow unicorn pays half
   }
   p.bcd = 50;
-  const a = p.ang, len = 60 + p.cs[0] * 6,      // STR throws the rail further
+  const a = p.ang, len = 60 + p.cs[0] * 6,
         bx = p.x + cos(a) * 9, by = p.y + sin(a) * 9,
         ex = bx + cos(a) * len, ey = by + sin(a) * len,
         arc = (rs() < .5 ? 1 : -1) * len * .3,

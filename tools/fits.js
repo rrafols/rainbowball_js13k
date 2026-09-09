@@ -34,8 +34,6 @@ for (const f of readdirSync('src').filter(n => n.endsWith('.js')).sort()) {
     const a = args(src, i + 4);
     if (a.length < 3) continue;
     const line = src.slice(0, i).split('\n').length;
-    /* the scale can itself be an expression, which cannot be checked from
-       source, so take the largest scale any literal number in it could be */
     let s = a[4] ? +a[4] : 1, al = a[5] ? +a[5] : 0;
     if (!isFinite(s)) s = Math.max(...(a[4].match(/\d+/g) || [1]).map(Number));
     if (!isFinite(al)) al = 0;

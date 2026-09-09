@@ -26,7 +26,7 @@ function title() {
         got ? C(i * 44 + 20, 66) : '#4a3a78', 1);
   });
   if (t % 60 < 40) txt('SPACE OR TAP', 100, 272, C(50, 65), 1, 1);
-  audioIcons(8, 291); txt('M SOUND', 22, 292, '#5b4b8a', 1);
+  audioIcons(8, 291); txt('SOUND', 22, 292, '#5b4b8a', 1);
 }
 /* five pips, coloured by which stat, lit up to n - the desk and the stat bars
    both draw these */

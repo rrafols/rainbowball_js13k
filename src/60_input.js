@@ -6,7 +6,6 @@ addEventListener('keydown', e => {
   const k = e.key.toLowerCase();
   K[k] = 1;
   if ([' ','arrowup','arrowdown','arrowleft','arrowright'].includes(k)) e.preventDefault();
-  if (k === 'm') mute ^= 1;
   if (!lit) return (lit = 1, snd(1, .01, 'sine', .001), snd(700, .1, 'square', .04, 1400));
   if (tipI >= 0) { tipI = -1; return snd(600, .05); }
   if (st === 'play') return;
@@ -52,26 +51,33 @@ function pos(e) {                                       // client -> virtual px
   return [(e.clientX - b.left) / b.width * W, (e.clientY - b.top) / b.height * H];
 }
 CV.addEventListener('pointerdown', e => {
+  touch = e.pointerType !== 'mouse';                 // before the boot gate, so the title knows
   if (!lit) return (lit = 1, snd(1, .01, 'sine', .001), snd(700, .1, 'square', .04, 1400));
-  touch = e.pointerType !== 'mouse'; CV.setPointerCapture(e.pointerId);
+  CV.setPointerCapture(e.pointerId);
   const [x, y] = pos(e);
   if (tipI >= 0) { tipI = -1; snd(600, .05); return; }
   if (st !== 'play') { tap(x, y); return; }
   if (x < W / 2) { jid = e.pointerId; jox = x; joy = y; jx = jy = 0; }
   else if (hyp(x - 172, y - 196) < 18) bowBtn = 1;
+  else if (y > VB) mute ^= 1;                        // the sound icon in the bottom bar
   else act = 1;
 });
 CV.addEventListener('pointermove', e => {
   if (e.pointerId !== jid) return;
   const [x, y] = pos(e), dx = x - jox, dy = y - joy, d = hyp(dx, dy);
-  if (d > 2) { jx = clamp(dx / 14, -1, 1); jy = clamp(dy / 14, -1, 1); } else jx = jy = 0;
+  /* a floating stick: full deflection at 9 units, and past that the base is
+     dragged along behind the thumb, so a reversal is felt on the next tick
+     instead of after a trip back across the dead zone */
+  if (d > 9) { jox = x - dx / d * 9; joy = y - dy / d * 9; }
+  if (d > 2) { jx = clamp(dx / 9, -1, 1); jy = clamp(dy / 9, -1, 1); } else jx = jy = 0;
 });
 for (const ev of ['pointerup', 'pointercancel']) addEventListener(ev, e => {   // cancel: the browser took the touch
   if (e.pointerId === jid) { jid = -1; jx = jy = 0; }
 });
 /* Tap zones duplicate the y-offsets 82_screens.js draws at. Change both. */
 function tap(x, y) {
-  if (st === 'title') {                              // the skip box, or start
+  if (st === 'title') {                              // the fullscreen box, or start
+    if (y > 284 && x < 100) return (mute ^= 1, snd(700, .05));   // the sound icon
     return menu();
   }
   if (st === 'depot') {

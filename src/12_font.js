@@ -1,7 +1,4 @@
-/* ---------- 2. 3x5 pixel font (5 octal digits per glyph) -----
-   Two strings: FK is the glyph order, FD the rows, five octal digits a glyph,
-   so a character's rows are FD.substr(FK.indexOf(ch) * 5, 5). Space has no
-   glyph: an unknown char draws nothing. */
+/* ---------- 2. 3x5 pixel font (5 octal digits per glyph) ----- */
 const FK = "0123456789ABCDEFGHIJKLMNOPRSTUVWXYZ-!?.+/",
       FD = "7555726227717477171755711747177475771222757577571725755656563444365556746477464434553557557222711152556554444757755655552555265644656553421672222555575555255775552555522271247007002220271302000020272011244";
 function glyph(g, x, y, s, c) {
