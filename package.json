@@ -10,7 +10,9 @@
     "size": "node tools/build.js --report",
     "pack": "node tools/build.js --roadroller",
     "test": "node tools/build.js --test --roadroller && node tools/smoke.js && node tools/fits.js",
-    "shots": "node tools/build.js --test --roadroller && node tools/shots.js"
+    "shots": "node tools/build.js --test --roadroller && node tools/shots.js",
+    "video": "node tools/build.js --test --roadroller && node tools/video.js",
+    "soundtrack": "node tools/soundtrack.js"
   },
   "devDependencies": {
     "canvas": "^3.2.3",

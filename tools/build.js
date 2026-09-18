@@ -23,7 +23,7 @@ if (test) source += `
   set mIn(v){mIn=v}, set sd(v){sd=v}, get bows(){return bows},
   nav, subIn, doAct, get mi(){return mi}, set mi(v){mi=v}, get sel(){return sel}, set sel(v){sel=v},
   set skipT(v){tutSeen=v}, set touch(v){touch=v}, set tipI(v){tipI=v}, set specT(v){specT=v}, set specTeam(v){specTeam=v}, set sweep(v){sweep=v}, bigUnicorn, txt, X,   /* harnesses still say g.skipT = 1 */ set lit(v){lit=v},
-  get achG(){return achG}, set achG(v){achG=v}, ach };`;
+  get achG(){return achG}, set achG(v){achG=v}, ach, music, set mute(v){mute=v}, get hurt(){return hurt}, get specT(){return specT}, get hero(){return hero}, get meter(){return meter}, get FB(){return FB}, get CX(){return CX} };`;
 
 const min = await minify(source, {
   ecma: 2020,
